@@ -28,6 +28,8 @@ class AccountTest {
         HashMap<Curr, Integer> originalCurr = acc.getCurrList();
 
         Loadable qs1 = acc.Save();
+        //Проверка на возможность многократного сохранения объекта Account
+        Assertions.assertDoesNotThrow(()-> {Loadable qs2 = acc.Save();});
 
         acc.setNameAcc("Элисиф Красивая");
         acc.setSaldo(Curr.EUR, 200);
